@@ -1,1 +1,1 @@
-worker: python farshadblock
+worker: python farshadblock.py
