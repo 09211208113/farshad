@@ -119,31 +119,31 @@ def myself(c, m):
             tar = m.reply_to_message.from_user
         else:
             tar = m.from_user
-        app.edit_message_text(chatid, msgid, f'''**•User ID [{tar.first_name}](tg://user?id={tar.id}) Found**
+        app.edit_message_text(chatid, msgid, f'''**•User ID [{tar.first_name}](tg://user?id={tar.id})**
 **•User ID ➥** `{tar.id}`''')
 
     if "Userid" in m.text:
       users = m.text.split()[1]
       ids = app.get_users(users)
-      app.edit_message_text(chatid, msgid, f'''**•User ID [{ids.first_name}](tg://user?id={ids.id}) Found**
+      app.edit_message_text(chatid, msgid, f'''**•User ID [{ids.first_name}](tg://user?id={ids.id})**
 **•User ID ➥** `{ids.id}`''')
     if "userid" in m.text:
       users = m.text.split()[2]
       ids = app.get_users(users)
-      app.edit_message_text(chatid, msgid, f'''**•User ID [{ids.first_name}](tg://user?id={ids.id}) Found**
+      app.edit_message_text(chatid, msgid, f'''**•User ID [{ids.first_name}](tg://user?id={ids.id})**
 **•User ID ➥** `{ids.id}`''')
 
     if "Userse" in m.text:
       users = m.text.split()[1]
       ids = app.get_users(users)
-      app.edit_message_text(chatid, msgid, f"**『 User [{ids.first_name}](tg://user?id={ids.id}) Found 』**")
+      app.edit_message_text(chatid, msgid, f"**『 User [{ids.first_name}](tg://user?id={ids.id})』**")
     if "userse" in m.text:
       users = m.text.split()[3]
       ids = app.get_users(users)
-      app.edit_message_text(chatid, msgid, f"**『 User [{ids.first_name}](tg://user?id={ids.id}) Found  』**")
+      app.edit_message_text(chatid, msgid, f"**『 User [{ids.first_name}](tg://user?id={ids.id})』**")
 
     if m.text == "groupid" or m.text == "Groupid":
-      app.edit_message_text(chatid, msgid, f'''**•Group ID ➥ {chatti} Found**
+      app.edit_message_text(chatid, msgid, f'''**•Group ID ➥ {chatti}**
 **•Group ID ➥** `{chatid}`''')
 
     if "Stats" in m.text:
