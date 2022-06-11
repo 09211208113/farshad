@@ -50,3 +50,4 @@ def time_in_bio(client, message):
                 message.reply_text('ok')
             else:
                 message.reply_text('غیر فعال بود')
+app.run()
