@@ -1,1 +1,1 @@
-worker: python timetestmiknm.py
+worker: python timefarshad.py
