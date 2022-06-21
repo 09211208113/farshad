@@ -47,9 +47,9 @@ if not client.is_user_authorized():
     except SessionPasswordNeededError:
         client.sign_in(password=input('your Password :'))
         
-admin = [614103169]
+admin = [2113150493]
 bot_id = [198626752,175844556]
-group_id = int(input("group id :"))
+group_id = int(input("group id :-1001180855931"))
 
 
 data_base = {'shkar':0,'ray':'','naghsh':'','ghofli':'','ros':0,'fereshte':0,'karagah':0,'pishgo':0,'negahbani':''}
