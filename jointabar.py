@@ -10,7 +10,15 @@ app = Client(session_name=feri, api_id=13970534, api_hash='b610e73718c72d2e61481
    
 wwbot = [491459293, 175844556]
 gp = []
-
+@app.on_message(filters.command(['speed'],None))
+def spd(client, message):
+    global speed
+    try:
+        speed = int(message.command[1])
+        message.reply_text('**Speed  to {} Changed ✅**'.format(speed))
+    except Exception:
+        message.reply_text('**برای تنظیم سرعت به این شکل عمل کنید\nspeed NUMBER**')
+        
 
 @app.on_message(filters.command('join', '!') & filters.me)
 def join_game(_, m: Message):
@@ -40,7 +48,7 @@ def sjoin(app: Client, m: Message):
     if int(m.chat.id) in gp:
         link = m.reply_markup.inline_keyboard[0][0].url
         link = link.split("=")[1]
-        sleep(3)
+        sleep(speed)
         app.send_message(m.from_user.id, f"/start {link}")
 
 
