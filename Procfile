@@ -1,1 +1,1 @@
-worker: python farshadblock.py
+worker: python jointabar.py
