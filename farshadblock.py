@@ -1,9 +1,9 @@
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from time import sleep
-feri = 'BAABiGqB8Z6nxt8HVgA-qR9hGNjebFp7Y6dHk5E5uzQL0utMRhxVGKoCwNPHNzZWGVCRDaAcx7LHptt7eW1jCRiNzVJghLrZeVMaLa-yQAbuG7wnFxWZKFEUouZ6QQtR5T0Xukn611revv5cZ3V0cQuxCtyMga95M5M20chuq4Wd48bGkTe_ieR4O1tgzUv3NCMTSqGxTbEsQsOsSoJdmrCVSmLirlsVrWuewPYg7U2o2gJC2oducVW126cXT0PH4usZPZUtYslA9mLFl9AWn26Pa10prl1ppxAeLJV92y3oyWKTwq1e732k-WmvUnoJnAz1MUAflnr6ZqJdnPBtjXSbAAAAAH30Hh0A'
+feri = 'BAAa9CENs3rs_hivaAEY-lifZsIO172CaqbsaAjfDco1oMG-TGno24cL2B8LHoBtMO9BQ1rnpnYB4bFy42UTi_P2p3pzYNyNq2QkU6eFz1MTeJ94qPM345V94RhqNRbFeiuMls7XPx2hMIJ7UzlJDtzKyqEw6E_3_10DmmSADjFcKVJviYL_ZUgw5reTaYvB8FHRNXl6J3sHYq_JMzyzsotqJS7eNRcaqLERWupuUO7WWeiefXKa5RiHSdRAbuzauEWNimc_hcL2ayyHQ37gOFv6Jg6xp1yuhLB1YPNKD_R4W-juyAX3vaCmlpqF-zFMdLbcquyXR4xJ6lh_WAqTi-AAAAAH30Hh0A'
 
-app = Client(session_name=feri, api_id=3458298, api_hash='fb15460b27d133024fbcba9a8e1d0cb3')
+app = Client(session_name=feri, api_id=11434929, api_hash='96015db8ea30bdbbeeded8a6c046d3fa')
   
 @app.on_message(filters.text & filters.me & filters.regex('Block'))
 def block_users(client,message):
