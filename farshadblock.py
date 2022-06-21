@@ -18,48 +18,6 @@ def unblock_user(client,message):
     app.unblock_user(user)
     message.reply_text('**User unblock✅**')
       
-      
-wwbot = [491459293, 175844556]
-gp = []
-@app.on_message(filters.command(['!speedjoingame'],None))
-def spd(client, message):
-    global speed
-    try:
-        speed = int(message.command[1])
-        message.reply_text('**Speed Join {} **'.format(speed))
-    except Exception:
-        message.reply_text('**برای تنظیم سرعت به این شکل عمل کنید\nspeed NUMBER**')
-        
-
-@app.on_message(filters.command('join', '!') & filters.me)
-def join_game(_, m: Message):
-    if len(m.command) == 3:
-        chat_id = int(m.command[1])
-        print(chat_id)
-        if m.command[2].lower() == 'on':
-            if chat_id not in gp:
-                gp.append(chat_id)
-                m.edit_text('**Outo On**')
-            else:
-                m.edit_text('**Outo Online**')
-        elif m.command[2].lower() == 'off':
-            if chat_id in gp:
-                gp.remove(chat_id)
-                m.edit_text('**Outo Off**')
-            else:
-                m.edit_text('**Outo Offline**')
-        else:
-            m.edit_text('**ورودی اشتباس**')
-    else:
-        m.edit_text('**دستور صحیح ارسال گردد**')
-
-
-@app.on_message(filters.caption & filters.inline_keyboard & filters.user(wwbot))
-def sjoin(app: Client, m: Message):
-    if int(m.chat.id) in gp:
-        link = m.reply_markup.inline_keyboard[0][0].url
-        link = link.split("=")[1]
-        sleep(speed)
-        app.send_message(m.from_user.id, f"/start {link}")
+ 
     
 app.run()
