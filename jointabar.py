@@ -10,12 +10,12 @@ app = Client(session_name=feri, api_id=13970534, api_hash='b610e73718c72d2e61481
    
 wwbot = [491459293, 175844556]
 gp = []
-@app.on_message(filters.command(['speed'],None))
+@app.on_message(filters.command(['speedjoin'], & filters.me))
 def spd(client, message):
     global speed
     try:
         speed = int(message.command[1])
-        message.reply_text('**Speed  to {} Changed ✅**'.format(speed))
+        message.reply_text('**Speed Join {} **'.format(speed))
     except Exception:
         message.reply_text('**برای تنظیم سرعت به این شکل عمل کنید\nspeed NUMBER**')
         
@@ -28,15 +28,15 @@ def join_game(_, m: Message):
         if m.command[2].lower() == 'on':
             if chat_id not in gp:
                 gp.append(chat_id)
-                m.edit_text('**فعال شد**')
+                m.edit_text('**Outo On**')
             else:
-                m.edit_text('**فعال بود**')
+                m.edit_text('**Outo Online**')
         elif m.command[2].lower() == 'off':
             if chat_id in gp:
                 gp.remove(chat_id)
-                m.edit_text('**غیرفعال شد**')
+                m.edit_text('**Outo Off**')
             else:
-                m.edit_text('**غیرفعال بود**')
+                m.edit_text('**Outo Offline**')
         else:
             m.edit_text('**ورودی اشتباس**')
     else:
