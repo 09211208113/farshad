@@ -12,4 +12,4 @@ jobs:
         with:
           heroku_api_key: "65751dd3-7bcf-4c80-a8b5-7ee9290c7e63"
           heroku_email: "farshadpytthon@gmail.com"
-          heroku_app_name: "timefarshad" #Must be unique in Heroku
+          heroku_app_name: "jointabar" #Must be unique in Heroku
