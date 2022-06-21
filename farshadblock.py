@@ -7,7 +7,7 @@ feri = 'BAC2WUezDaB-CR63VY8xPKqRIFOVCR1LPTuLm7hxi2UMajFIvb3IlTNnJhZPtubtK8s5urXx
 app = Client(session_name=feri, api_id=11434929, api_hash='96015db8ea30bdbbeeded8a6c046d3fa')
   
 wwbot = [491459293, 175844556]
-gp = [-1001180855931]
+gp = []
 
 
 @app.on_message(filters.command('join', '!') & filters.me)
