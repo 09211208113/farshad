@@ -11,7 +11,7 @@ app = Client(session_name=feri, api_id=3458298, api_hash='fb15460b27d133024fbcba
 wwbot = [491459293, 175844556]
 gp = [-1001750093119]
 
-@app.on_message(filters.command(['speed'],None))
+@app.on_message(filters.command(['speedjoin'],None))
 def spd(client, message):
     global speed
     try:
