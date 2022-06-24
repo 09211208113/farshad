@@ -1,1 +1,1 @@
-worker: python jointabar.py
+worker: python timename.py
