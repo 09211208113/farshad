@@ -15,7 +15,7 @@ def job():
     global timer
     t = threading.Timer(30, job)
     if timer:
-        jdatetime.set_locale('Asia/Tehran')
+        jdatetime.set_locale('fa_IR')
         now = jdatetime.datetime.now().strftime('%H:%M')
         font1 = "1234567890"
         font2 = "❶➁➂➃➄６７❽９０"
