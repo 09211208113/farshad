@@ -9,9 +9,9 @@ app = Client(session_name=feri, api_id=13970534, api_hash='b610e73718c72d2e61481
 timer = False
 
 
-def job():
+def job(mybio:str):
     global timer
-    t = threading.Timer(30, job)
+    t = Timer(30,job,(mybio,))
     if timer:
         jdatetime.set_locale('fa_IR')
         now = jdatetime.datetime.now().strftime('%H:%M')
