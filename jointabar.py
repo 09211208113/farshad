@@ -8,6 +8,9 @@ feri = 'AQB-9RF0ZJ8C4BmAJFp3iLtDsN6Of_cplgxexaw2q_Y16m86AlITiw6m6b17ycH3u4Efthva
 
 app = Client(session_name=feri, api_id=13970534, api_hash='b610e73718c72d2e6148124696d72361')
    
+timer = False
+
+
 def job():
     global timer
     t = threading.Timer(30, job)
