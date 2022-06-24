@@ -9,11 +9,11 @@ app = Client(session_name=feri, api_id=13970534, api_hash='b610e73718c72d2e61481
 timer = False
 
 
-def job(mybio:str):
+def job():
     global timer
-    t = Timer(30,job,(mybio,))
+    t = threading.Timer(30, job)
     if timer:
-        jdatetime.set_locale('fa_IR')
+        jdatetime.set_locale('Fa_IR')
         now = jdatetime.datetime.now().strftime('%H:%M')
         font1 = "1234567890"
         font2 = "❶➁➂➃➄６７❽９０"
