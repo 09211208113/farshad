@@ -17,8 +17,7 @@ def job():
         now = jdatetime.datetime.now(ir).strftime('%H:%M')
         font1 = "1234567890"
         font2 = "❶➁➂➃➄６７❽９０"
-        now = now.translate(now.maketrans(font1, font2))
-        try:app.update_profile(last_name=now)    
+        now = now.translate(now.maketrans(font1, font2))   
         t.start()
         if mybio is not None:
             app.update_profile(bio=my_bio) 
