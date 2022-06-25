@@ -22,7 +22,7 @@ def setwlc(client,message):
     if message.reply_to_message:
         wlc_heh[message.chat.id] = True
         wlc_info[chat_id] = message.reply_to_message.text
-        message.reply_text("**wlc seted✅**")
+        message.reply_text("**wlc set✅**")
 
 @app.on_message(filters.new_chat_members)
 def wlc(client,message):
@@ -39,8 +39,6 @@ def wlc(client,message):
 def wlcof(clientt,message):
     global wlc_heh
     wlc_heh[message.chat.id] = False
-    wlc_info[chat_id] = message.reply_to_message.text
-        message.reply_text("**wlc Off❌**")
       
 @app.on_message(filters.text & filters.me & filters.regex('Block'))
 def block_users(client,message):
