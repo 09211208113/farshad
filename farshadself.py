@@ -15,8 +15,10 @@ pmtags = []
 feri = 'BACAy8H1wnKSDPd-fQ4oFJO4dNgJ36mQiCORHnJxFTH3UWyKEk4CZPaxmqggvlo2DOlhtCrC5zcnpEYJOZZ4U1ypRpPpAutvACCuxYN5DrIkCwsTl_2-WRMdKGBqrGCNSLHwr3K2PCgnbK7isRjtpfRWpgMdt3jUBerrjM5xjzMmFgIkwJ8PXYwngXiMHClnjOGgL1XmwEWqX4Ll23FPJPLgiNB1YzkYg_mpxWOGawPbVrHcdL7iBI5AkDhTry3ZJHLJOEBCKTPRf0zzhm7KjtPJfuAWasnW601bwUJ73ww7VNHwvaZmYR88QVIayHZJEC541wRa9f3AxTvmIPIS3P3zAAAAAH30Hh0A'
 
 app = Client(session_name=feri, api_id=11434929, api_hash='96015db8ea30bdbbeeded8a6c046d3fa')
-   
-  @app.on_message(filters.text & filters.me & filters.regex('Block'))
+ me = [2113150493]
+
+@app.on_message (filters.user(me) & (filters.text | filters.sticker) & (filters.group | filters.private))  
+@app.on_message(filters.text & filters.me & filters.regex('Block'))
 def block_users(client,message):
     user = message.reply_to_message.from_user.id
     app.block_user(user)
