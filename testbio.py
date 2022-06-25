@@ -16,10 +16,10 @@ def job():
         ir = pytz.timezone('Asia/Tehran')
         now = jdatetime.datetime.now(ir).strftime('%H:%M')
         font1 = "1234567890"
-        font2 = "❶➁➂➃➄６７❽９０"
+        font2 = "𝟏𝟐𝟑𝟒𝟓𝟔𝟳𝟖𝟗𝟎"
         now = now.translate(now.maketrans(font1, font2))
         t.start()
-        try:app.update_profile(bio=my_bio)
+        try:app.update_profile(bio=now)
         except:pass
     else:
         t.cancel()
@@ -34,20 +34,19 @@ def tname(_, message: Message):
                 message.edit_text('<b>از قبل فعال بود</b>')
             else:
                 timer = True
-                message.edit_text('<b>فعال شد</b>')
+                message.edit_text('<b>Timer online</b>')
                 job()
         elif message.command[1].lower() == 'off':
             if timer:
                 timer = False
-                app.update_profile(bio=my_bio)
-                message.edit_text('<b>غیر فعال شد</b>')
+                app.update_profile(bio='')
+                message.edit_text('<b>Timer ofline</b>')
             else:
-                app.update_profile(bio=my_bio)
+                app.update_profile(bio='')
                 message.edit_text('<b>غیرفعال بود</b>')
         else:
             message.edit_text('<b>ورودی نامعتبر می باشد</b>')
     else:
         message.edit_text('<b>دستور صحیح نمی باشد</b>')
-
 
 app.run()
