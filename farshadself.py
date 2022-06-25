@@ -16,7 +16,107 @@ feri = 'BACAy8H1wnKSDPd-fQ4oFJO4dNgJ36mQiCORHnJxFTH3UWyKEk4CZPaxmqggvlo2DOlhtCrC
 
 app = Client(session_name=feri, api_id=11434929, api_hash='96015db8ea30bdbbeeded8a6c046d3fa')
    
-   
+  @app.on_message(filters.text & filters.me & filters.regex('Block'))
+def block_users(client,message):
+    user = message.reply_to_message.from_user.id
+    app.block_user(user)
+    message.reply_text('**User block✅**')
+
+
+@app.on_message(filters.text & filters.me & filters.regex('Unblock'))
+def unblock_user(client,message):
+    user = message.reply_to_message.from_user.id
+    app.unblock_user(user)
+    message.reply_text('**User unblock✅**')
+      
+    
+wwbot = [491459293, 175844556]
+gp = []
+@app.on_message(filters.command(['!speedjoingame'],None))
+def spd(client, message):
+    global speed
+    try:
+        speed = int(message.command[1])
+        message.reply_text('**Speed Join {} **'.format(speed))
+    except Exception:
+        message.reply_text('**برای تنظیم سرعت به این شکل عمل کنید\nspeed NUMBER**')
+        
+
+@app.on_message(filters.command('join', '!') & filters.me)
+def join_game(_, m: Message):
+    if len(m.command) == 3:
+        chat_id = int(m.command[1])
+        print(chat_id)
+        if m.command[2].lower() == 'on':
+            if chat_id not in gp:
+                gp.append(chat_id)
+                m.edit_text('**Outo On**')
+            else:
+                m.edit_text('**Outo Online**')
+        elif m.command[2].lower() == 'off':
+            if chat_id in gp:
+                gp.remove(chat_id)
+                m.edit_text('**Outo Off**')
+            else:
+                m.edit_text('**Outo Offline**')
+        else:
+            m.edit_text('**ورودی اشتباس**')
+    else:
+        m.edit_text('**دستور صحیح ارسال گردد**')
+
+
+@app.on_message(filters.caption & filters.inline_keyboard & filters.user(wwbot))
+def sjoin(app: Client, m: Message):
+    if int(m.chat.id) in gp:
+        link = m.reply_markup.inline_keyboard[0][0].url
+        link = link.split("=")[1]
+        sleep(speed)
+        app.send_message(m.from_user.id, f"/start {link}")
+
+timer = False
+
+def job():
+    global timer
+    t = threading.Timer(30, job)
+    if timer:
+        ir = pytz.timezone('Asia/Tehran')
+        now = jdatetime.datetime.now(ir).strftime('%H:%M')
+        font1 = "1234567890"
+        font2 = "❶➁➂➃➄６７❽９０"
+        now = now.translate(now.maketrans(font1, font2))
+        t.start()
+        try:app.update_profile(last_name=now)
+        except:pass
+    else:
+        t.cancel()
+
+
+@app.on_message(filters.command('timer', '!') & filters.me)
+def tname(_, message: Message):
+    global timer
+    if len(message.command) == 2:
+        if message.command[1].lower() == 'on':
+            if timer:
+                message.edit_text('<b>از قبل فعال بود</b>')
+            else:
+                timer = True
+                message.edit_text('<b>فعال شد</b>')
+                job()
+        elif message.command[1].lower() == 'off':
+            if timer:
+                timer = False
+                app.update_profile(last_name='')
+                message.edit_text('<b>غیر فعال شد</b>')
+            else:
+                app.update_profile(last_name='')
+                message.edit_text('<b>غیرفعال بود</b>')
+        else:
+            message.edit_text('<b>ورودی نامعتبر می باشد</b>')
+    else:
+        message.edit_text('<b>دستور صحیح نمی باشد</b>')
+
+app.run()
+ 
 men = True
 
 edc = []
@@ -505,110 +605,6 @@ def myself(c, m):
             sleep(int(eds5))
 
 app.run()
-from pyrogram import Client, filters
-from pyrogram.types import Message
-import jdatetime
-import threading
-import pytz
 
 
-@app.on_message(filters.text & filters.me & filters.regex('Block'))
-def block_users(client,message):
-    user = message.reply_to_message.from_user.id
-    app.block_user(user)
-    message.reply_text('**User block✅**')
 
-
-@app.on_message(filters.text & filters.me & filters.regex('Unblock'))
-def unblock_user(client,message):
-    user = message.reply_to_message.from_user.id
-    app.unblock_user(user)
-    message.reply_text('**User unblock✅**')
-      
-    
-wwbot = [491459293, 175844556]
-gp = []
-@app.on_message(filters.command(['!speedjoingame'],None))
-def spd(client, message):
-    global speed
-    try:
-        speed = int(message.command[1])
-        message.reply_text('**Speed Join {} **'.format(speed))
-    except Exception:
-        message.reply_text('**برای تنظیم سرعت به این شکل عمل کنید\nspeed NUMBER**')
-        
-
-@app.on_message(filters.command('join', '!') & filters.me)
-def join_game(_, m: Message):
-    if len(m.command) == 3:
-        chat_id = int(m.command[1])
-        print(chat_id)
-        if m.command[2].lower() == 'on':
-            if chat_id not in gp:
-                gp.append(chat_id)
-                m.edit_text('**Outo On**')
-            else:
-                m.edit_text('**Outo Online**')
-        elif m.command[2].lower() == 'off':
-            if chat_id in gp:
-                gp.remove(chat_id)
-                m.edit_text('**Outo Off**')
-            else:
-                m.edit_text('**Outo Offline**')
-        else:
-            m.edit_text('**ورودی اشتباس**')
-    else:
-        m.edit_text('**دستور صحیح ارسال گردد**')
-
-
-@app.on_message(filters.caption & filters.inline_keyboard & filters.user(wwbot))
-def sjoin(app: Client, m: Message):
-    if int(m.chat.id) in gp:
-        link = m.reply_markup.inline_keyboard[0][0].url
-        link = link.split("=")[1]
-        sleep(speed)
-        app.send_message(m.from_user.id, f"/start {link}")
-
-timer = False
-
-def job():
-    global timer
-    t = threading.Timer(30, job)
-    if timer:
-        ir = pytz.timezone('Asia/Tehran')
-        now = jdatetime.datetime.now(ir).strftime('%H:%M')
-        font1 = "1234567890"
-        font2 = "❶➁➂➃➄６７❽９０"
-        now = now.translate(now.maketrans(font1, font2))
-        t.start()
-        try:app.update_profile(last_name=now)
-        except:pass
-    else:
-        t.cancel()
-
-
-@app.on_message(filters.command('timer', '!') & filters.me)
-def tname(_, message: Message):
-    global timer
-    if len(message.command) == 2:
-        if message.command[1].lower() == 'on':
-            if timer:
-                message.edit_text('<b>از قبل فعال بود</b>')
-            else:
-                timer = True
-                message.edit_text('<b>فعال شد</b>')
-                job()
-        elif message.command[1].lower() == 'off':
-            if timer:
-                timer = False
-                app.update_profile(last_name='')
-                message.edit_text('<b>غیر فعال شد</b>')
-            else:
-                app.update_profile(last_name='')
-                message.edit_text('<b>غیرفعال بود</b>')
-        else:
-            message.edit_text('<b>ورودی نامعتبر می باشد</b>')
-    else:
-        message.edit_text('<b>دستور صحیح نمی باشد</b>')
-
-app.run()
