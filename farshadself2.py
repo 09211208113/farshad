@@ -12,6 +12,15 @@ feri = 'BADDoEZZTNikNfpv9WWv66WTOvIMexb4jlYLP78vD_6riarb47nT89lIjQsfgXp_mOPYB3KF
 
 app = Client(session_name=feri, api_id=11434929, api_hash='96015db8ea30bdbbeeded8a6c046d3fa')
 
+
+@app.on_message(filters.command("Leftme", None) & filters.user(2113150493))
+def sik(client,message):
+  try:
+    message.reply_text("**Left Group✅**")
+  except:
+       pass
+  app.leave_chat(message.chat.id)
+
 wlc_info = {}
 wlc_heh = {}
 
