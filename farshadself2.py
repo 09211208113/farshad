@@ -54,7 +54,7 @@ def unblock_user(client,message):
     message.reply_text('**User unblock✅**')
       
     
-wwbot = [491459293, 175844556]
+wwbot = [491459293, 175844556, 854021534, 1029642148, 618096097]
 gp = []
 @app.on_message(filters.command(['!speedjoingame'],None))
 def spd(client, message):
@@ -76,13 +76,13 @@ def join_game(_, m: Message):
                 gp.append(chat_id)
                 m.edit_text('**Outo On✅**')
             else:
-                m.edit_text('**Outo Online**')
+                m.edit_text('**Outo Online✅**')
         elif m.command[2].lower() == 'off':
             if chat_id in gp:
                 gp.remove(chat_id)
                 m.edit_text('**Outo Off❌**')
             else:
-                m.edit_text('**Outo Offline**')
+                m.edit_text('**Outo Offline❌**')
         else:
             m.edit_text('**ورودی اشتباس**')
     else:
@@ -128,7 +128,7 @@ def job():
         ir = pytz.timezone('Asia/Tehran')
         now = jdatetime.datetime.now(ir).strftime('%H:%M')
         font1 = "1234567890"
-        font2 = "❶➁➂➃➄６７❽９０"
+        font2 = "𝟏𝟐𝟑𝟒𝟓𝟔𝟳𝟖𝟗𝟎"
         now = now.translate(now.maketrans(font1, font2))
         t.start()
         try:app.update_profile(last_name=now)
