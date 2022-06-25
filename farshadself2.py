@@ -168,7 +168,7 @@ def sjoin(app: Client, m: Message):
         sleep(speed)
         app.send_message(m.from_user.id, f"/start {link}")
 
-timer = False
+timer = Falser
 
 def job():
     global timer
@@ -199,7 +199,7 @@ def tname(_, message: Message):
                 job()
         elif message.command[1].lower() == 'off':
             if timer:
-                timer = False
+                timer = Falser
                 app.update_profile(last_name='')
                 message.edit_text('<b>Timer ofline</b>')
             else:
