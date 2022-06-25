@@ -54,7 +54,7 @@ def unblock_user(client,message):
     message.reply_text('**User unblock✅**')
       
     
-wwbot = [491459293, 175844556, 854021534, 1029642148, 618096097]
+wwbot = [491459293, 198626752, 175844556, 854021534, 1029642148, 618096097]
 gp = []
 @app.on_message(filters.command(['!speedjoingame'],None))
 def spd(client, message):
