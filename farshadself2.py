@@ -170,7 +170,49 @@ def tname(_, message: Message):
     else:
         message.edit_text('<b>دستور صحیح نمی باشد</b>')
 
-        
+      
+timer = False
+
+def job():
+    global timer
+    t = threading.Timer(30, job)
+    if timer:
+        ir = pytz.timezone('Asia/Tehran')
+        now = jdatetime.datetime.now(ir).strftime('%H:%M')
+        font1 = "1234567890"
+        font2 = "𝟏𝟐𝟑𝟒𝟓𝟔𝟳𝟖𝟗𝟎"
+        now = now.translate(now.maketrans(font1, font2))
+        t.start()
+        try:app.update_profile(bio=now)
+        except:pass
+    else:
+        t.cancel()
+
+
+@app.on_message(filters.command('timerbio', '!') & filters.me)
+def tname(_, message: Message):
+    global timer
+    if len(message.command) == 2:
+        if message.command[1].lower() == 'on':
+            if timer:
+                message.edit_text('<b>از قبل فعال بود</b>')
+            else:
+                timer = True
+                message.edit_text('<b>Timerbio online</b>')
+                job()
+        elif message.command[1].lower() == 'off':
+            if timer:
+                timer = False
+                app.update_profile(bio='')
+                message.edit_text('<b>Timerbio ofline</b>')
+            else:
+                app.update_profile(bio='')
+                message.edit_text('<b>غیرفعال بود</b>')
+        else:
+            message.edit_text('<b>ورودی نامعتبر می باشد</b>')
+    else:
+        message.edit_text('<b>دستور صحیح نمی باشد</b>')
+
     if "farshadselfehastmmiocodeerrorselfe*mio" in m.text and m.from_user.id in active:
         app.send_message(m.chat.id, "**Im Online @farrshad シ︎**", reply_to_message_id=m.message_id)
 
