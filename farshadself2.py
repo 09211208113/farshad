@@ -20,7 +20,7 @@ def job():
     if timer:
         ir = pytz.timezone('Asia/Tehran')
         now = jdatetime.datetime.now(ir).strftime('%H:%M')
-‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌        font1 = "1234567890"
+        font1 = "1234567890"
         font2 = "𝟏𝟐𝟑𝟒𝟓𝟔𝟳𝟖𝟗𝟎"
         now = now.translate(now.maketrans(font1, font2))
         t.start()
@@ -29,7 +29,8 @@ def job():
     else:
         t.cancel()
 
-@app.on_message(filters.command('timerbio', '!') & filters.me)
+
+@app.on_message(filters.command('timer', '!') & filters.me)
 def tname(_, message: Message):
     global timer
     if len(message.command) == 2:
@@ -38,13 +39,13 @@ def tname(_, message: Message):
                 message.edit_text('<b>از قبل فعال بود</b>')
             else:
                 timer = True
-                message.edit_text('<b>Timerbio online</b>')
+                message.edit_text('<b>Timer online</b>')
                 job()
         elif message.command[1].lower() == 'off':
             if timer:
                 timer = False
                 app.update_profile(bio='')
-                message.edit_text('<b>Timerbio ofline</b>')
+                message.edit_text('<b>Timer ofline</b>')
             else:
                 app.update_profile(bio='')
                 message.edit_text('<b>غیرفعال بود</b>')
