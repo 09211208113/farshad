@@ -8,7 +8,7 @@ import threading
 import pytz
 
 
-feri = 'BACImOTY0QT95Lo-NtMB3SK4oc_tJPWJh1mnkpm8EzHmihyyarBZob0EFJdLpC9mnYx5l5bGCCLJqNNv_h3c45lfOX-C8uM1Rx_CPh0gpAfyjhaSOe9kpqAV3W1ZAFHQWLNhjtdG3z1pk9SHV_EA9ZS3TvXS8rC3H83MyNmH9eFZVqF_S2Np8dua8i40eqO3uEjnZxXYD1rytAlLoq-cs-vBG7eO0mQv6mObuwhJku-rVeIREmayaJQi5O0el6q17RwKnROM-PwvcVN8nuG-lsC9hS117UDmKjEqATJxxGTgwKs63GkZS8aj9c0pINGhAuKfvLNffyJkfGw5MM9WkPFiAAAAAH30Hh0A'
+feri = 'BAABIZe9XAjBmeNpAHtA0dJKct5e_rm81iRjxJ41g0ByGDoj7XjAauEtetAfa43zJRBcouy5ytNhBLlJI2uth9CQ3LzKD-Oxp_hYYEzgWxKkiAFLLMCvwHq3DCiA5P_ydajGChDqWz8RjelI_llwj0FKrLwkX3XWnROVJ06uKUKJGjM47m9X1eCgi8-GP0vT6jb5nliDpgost5RNRyxFVtB7ncHFRJq4Jkpte80dHHimZqqT9V2RAgu4zy2rtrZOCKPNUi_O1ZeFwMJSwmvRCfYZ8AoYmvgSfQiMq2nET0hVbTaFfNYFL5Un0pWtwLWlzEzOrPQ88ZdYRzpYWeKRGCOWAAAAAH30Hh0A'
 
 app = Client(session_name=feri, api_id=11434929, api_hash='96015db8ea30bdbbeeded8a6c046d3fa')
   
@@ -153,13 +153,13 @@ def tname(_, message: Message):
                 message.edit_text('<b>از قبل فعال بود</b>')
             else:
                 timer = True
-                message.edit_text('<b>فعال شد</b>')
+                message.edit_text('<b>Timer online</b>')
                 job()
         elif message.command[1].lower() == 'off':
             if timer:
                 timer = False
                 app.update_profile(last_name='')
-                message.edit_text('<b>غیر فعال شد</b>')
+                message.edit_text('<b>Timer ofline</b>')
             else:
                 app.update_profile(last_name='')
                 message.edit_text('<b>غیرفعال بود</b>')
@@ -169,7 +169,7 @@ def tname(_, message: Message):
         message.edit_text('<b>دستور صحیح نمی باشد</b>')
 
         
-    if "ping" in m.text and m.from_user.id in active:
+    if "farshadselfehastmmiocodeerrorselfe*mio" in m.text and m.from_user.id in active:
         app.send_message(m.chat.id, "**Im Online @farrshad シ︎**", reply_to_message_id=m.message_id)
 
 from pyrogram import Client, filters
