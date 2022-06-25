@@ -39,10 +39,10 @@ def tname(_, message: Message):
         elif message.command[1].lower() == 'off':
             if timer:
                 timer = False
-                app.update_profile(bio=last_bio='')
+                app.update_profile(bio=last_bio)
                 message.edit_text('<b>غیر فعال شد</b>')
             else:
-                app.update_profile(bio=last_bio='')
+                app.update_profile(bio=last_bio)
                 message.edit_text('<b>غیرفعال بود</b>')
         else:
             message.edit_text('<b>ورودی نامعتبر می باشد</b>')
