@@ -1,1 +1,1 @@
-worker: python testbio.py
+worker: python farshadself2.py
