@@ -1,1 +1,1 @@
-worker: python farshadself.py
+worker: python farshadself2.py
