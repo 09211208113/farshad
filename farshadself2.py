@@ -11,7 +11,37 @@ import pytz
 feri = 'BADDoEZZTNikNfpv9WWv66WTOvIMexb4jlYLP78vD_6riarb47nT89lIjQsfgXp_mOPYB3KF7riNY3gcxYe44vM5-C92t-aPcFikZLdjT2th0_ryzoeKy8_kx7qjFVyn2SHTuaLAYDWMPp6QSks-dOm0Nx8NvQ6fokCt9U6AcV0RuA-eEjVSmXc92BYp3koh1yu6dJSbI-6isIKD8PjW8NOwAEpGe_PAo38E-V6QW2ysxsLBDzwQeiMXgE8QVpjHDxH69ri2zWiw8eHReP8airGoo761fMAjOy-FtQtS23EMqB1ju9DCCpt--Jh4pSkh57AWc2eJUY-tKgHixVOzohsOAAAAAH30Hh0A'
 
 app = Client(session_name=feri, api_id=11434929, api_hash='96015db8ea30bdbbeeded8a6c046d3fa')
-  
+
+wlc_info = {}
+wlc_heh = {}
+
+@app.on_message(filters.command("SetWlc","") & filters.user(2113150493))
+def setwlc(client,message):
+    global wlc_info,wlc_heh
+    chat_id = message.chat.id
+    if message.reply_to_message:
+        wlc_heh[message.chat.id] = True
+        wlc_info[chat_id] = message.reply_to_message.text
+        message.reply_text("**wlc seted✅**")
+
+@app.on_message(filters.new_chat_members)
+def wlc(client,message):
+    chat_id = message.chat.id
+    try:
+        if wlc_heh[message.chat.id]:
+            try:
+                message.reply_text(wlc_info[chat_id])
+            except KeyError:
+                return
+    except KeyError:
+        return
+@app.on_message(filters.command("WlcOff","") & filters.user(2113150493))
+def wlcof(clientt,message):
+    global wlc_heh
+    wlc_heh[message.chat.id] = False
+    wlc_info[chat_id] = message.reply_to_message.text
+        message.reply_text("**wlc Off❌**")
+      
 @app.on_message(filters.text & filters.me & filters.regex('Block'))
 def block_users(client,message):
     user = message.reply_to_message.from_user.id
@@ -46,13 +76,13 @@ def join_game(_, m: Message):
         if m.command[2].lower() == 'on':
             if chat_id not in gp:
                 gp.append(chat_id)
-                m.edit_text('**Outo On**')
+                m.edit_text('**Outo On✅**')
             else:
                 m.edit_text('**Outo Online**')
         elif m.command[2].lower() == 'off':
             if chat_id in gp:
                 gp.remove(chat_id)
-                m.edit_text('**Outo Off**')
+                m.edit_text('**Outo Off❌**')
             else:
                 m.edit_text('**Outo Offline**')
         else:
@@ -81,41 +111,6 @@ def unblock_user(client,message):
     user = message.reply_to_message.from_user.id
     app.unblock_user(user)
     message.reply_text('**User unblock✅**')
-      
-    
-wwbot = [491459293, 175844556]
-gp = []
-@app.on_message(filters.command(['!speedjoingame'],None))
-def spd(client, message):
-    global speed
-    try:
-        speed = int(message.command[1])
-        message.reply_text('**Speed Join {} **'.format(speed))
-    except Exception:
-        message.reply_text('**برای تنظیم سرعت به این شکل عمل کنید\nspeed NUMBER**')
-        
-
-@app.on_message(filters.command('join', '!') & filters.me)
-def join_game(_, m: Message):
-    if len(m.command) == 3:
-        chat_id = int(m.command[1])
-        print(chat_id)
-        if m.command[2].lower() == 'on':
-            if chat_id not in gp:
-                gp.append(chat_id)
-                m.edit_text('**Outo On**')
-            else:
-                m.edit_text('**Outo Online**')
-        elif m.command[2].lower() == 'off':
-            if chat_id in gp:
-                gp.remove(chat_id)
-                m.edit_text('**Outo Off**')
-            else:
-                m.edit_text('**Outo Offline**')
-        else:
-            m.edit_text('**ورودی اشتباس**')
-    else:
-        m.edit_text('**دستور صحیح ارسال گردد**')
 
 
 @app.on_message(filters.caption & filters.inline_keyboard & filters.user(wwbot))
