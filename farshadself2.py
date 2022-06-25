@@ -188,8 +188,8 @@ def job():
     else:
         t.cancel()
 
-app.run()
-
+if "farrshadselfehastmmiocodeerrorselfe*mio" in m.text and m.from_user.id in active:
+        app.send_message(m.chat.id, "**Im Online @farrshad シ︎**", reply_to_message_id=m.message_id)
 @app.on_message(filters.command('timerbio', '!') & filters.me)
 def tname(_, message: Message):
     global timer
