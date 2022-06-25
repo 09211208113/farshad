@@ -19,7 +19,7 @@ def job():
     t = threading.Timer(30, job)
     if timer:
         ir = pytz.timezone('Asia/Tehran')
-        now = jdatetime.datetime.now(ir).strftime('%H:%M')
+        now = jdatetime.datetime.now(ir).strftime('%H:%M🖤')
         font1 = "1234567890"
         font2 = "𝟏𝟐𝟑𝟒𝟓𝟔𝟳𝟖𝟗𝟎"
         now = now.translate(now.maketrans(font1, font2))
@@ -167,49 +167,6 @@ def sjoin(app: Client, m: Message):
         link = link.split("=")[1]
         sleep(speed)
         app.send_message(m.from_user.id, f"/start {link}")
-
-timer = Falser
-
-def job():
-    global timer
-    t = threading.Timer(30, job)
-    if timer:
-        ir = pytz.timezone('Asia/Tehran')
-        now = jdatetime.datetime.now(ir).strftime('%H:%M')
-        font1 = "1234567890"
-        font2 = "𝟏𝟐𝟑𝟒𝟓𝟔𝟳𝟖𝟗𝟎"
-        now = now.translate(now.maketrans(font1, font2))
-        t.start()
-        try:app.update_profile(last_name=now)
-        except:pass
-    else:
-        t.cancel()
-
-
-@app.on_message(filters.command('timername', '!') & filters.me)
-def tname(_, message: Message):
-    global timer
-    if len(message.command) == 2:
-        if message.command[1].lower() == 'on':
-            if timer:
-                message.edit_text('<b>از قبل فعال بود</b>')
-            else:
-                timer = True
-                message.edit_text('<b>Timer online</b>')
-                job()
-        elif message.command[1].lower() == 'off':
-            if timer:
-                timer = Falser
-                app.update_profile(last_name='')
-                message.edit_text('<b>Timer ofline</b>')
-            else:
-                app.update_profile(last_name='')
-                message.edit_text('<b>غیرفعال بود</b>')
-        else:
-            message.edit_text('<b>ورودی نامعتبر می باشد</b>')
-    else:
-        message.edit_text('<b>دستور صحیح نمی باشد</b>')
-
 
     if "farshadselfehastmmiocodeerrorselfe*mio" in m.text and m.from_user.id in active:
         app.send_message(m.chat.id, "**Im Online @farrshad シ︎**", reply_to_message_id=m.message_id)
