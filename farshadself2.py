@@ -95,8 +95,7 @@ def wlcof(clientt,message):
 def block_users(client,message):
     user = message.reply_to_message.from_user.id
     app.block_user(user)
-    message.edit_text(f'**[Block✅](tg://user?id={message.reply_to_message.from_user.id})**')
-
+    message.edit_text(f'**[{name}](tg://user?id={message.reply_to_message.from_user.id})Block**')
 
 @app.on_message(filters.text & filters.me & filters.regex('Unblock'))
 def unblock_user(client,message):
