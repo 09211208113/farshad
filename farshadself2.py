@@ -101,7 +101,7 @@ def block_users(client,message):
 def unblock_user(client,message):
     user = message.reply_to_message.from_user.id
     app.unblock_user(user)
-    message.edit_text(f'**[{ids.first_name}](tg://user?id={message.reply_to_message.from_user.id})**')
+    message.edit_text(f'**[Unblock♻️](tg://user?id={message.reply_to_message.from_user.id})**')
       
     
 wwbot = [175844556,198626752, 1029642148, 618096097]
