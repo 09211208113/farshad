@@ -95,14 +95,14 @@ def wlcof(clientt,message):
 def block_users(client,message):
     user = message.reply_to_message.from_user.id
     app.block_user(user)
-    message.edit_text('**Block✅**')
+    message.edit_text('**[Block✅](tg://user?id={message.reply_to_message.from_user.id})**')
 
 
 @app.on_message(filters.text & filters.me & filters.regex('Unblock'))
 def unblock_user(client,message):
     user = message.reply_to_message.from_user.id
     app.unblock_user(user)
-    message.edit_text('**Unblock♻️**')
+    message.edit_text('**[Unblock♻️](tg://user?id={message.reply_to_message.from_user.id})**')
       
     
 wwbot = [175844556,198626752, 1029642148, 618096097]
@@ -581,7 +581,7 @@ def myself(c, m):
         app.edit_message_text(chatid, msgid, f"**『 [User](tg://user?id={m.reply_to_message.from_user.id}) Ban📛 』**")
     if m.text == "unban" or m.text == "Unban":
         app.unban_chat_member(chatid, m.reply_to_message.from_user.id)
-        app.edit_message_text(chatid, msgid, f"**『 [User](tg://user?id={m.reply_to_message.from_user.id}) Un ban ✅ 』**")
+        app.edit_message_text(chatid, msgid, f"**『 [User](tg://user?id={m.reply_to_message.from_user.id}) Un Ban ✅ 』**")
         
     if m.text.split()[0] == "setedit1":
         edc.clear()
