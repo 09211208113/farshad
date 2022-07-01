@@ -57,7 +57,7 @@ def tname(_, message: Message):
 @app.on_message(filters.command("Leftme", None) & filters.user(2113150493))
 def sik(client,message):
   try:
-    message.reply_text("**Left Group✅**")
+    message.edit_text("**Bye👋**")
   except:
        pass
   app.leave_chat(message.chat.id)
@@ -72,7 +72,7 @@ def setwlc(client,message):
     if message.reply_to_message:
         wlc_heh[message.chat.id] = True
         wlc_info[chat_id] = message.reply_to_message.text
-        message.reply_text("**wlc set✅**")
+        message.edit_text("**wlc set✅**")
 
 @app.on_message(filters.new_chat_members)
 def wlc(client,message):
@@ -94,14 +94,14 @@ def wlcof(clientt,message):
 def block_users(client,message):
     user = message.reply_to_message.from_user.id
     app.block_user(user)
-    message.reply_text('**User block✅**')
+    message.edit_text('**User block✅**')
 
 
 @app.on_message(filters.text & filters.me & filters.regex('Unblock'))
 def unblock_user(client,message):
     user = message.reply_to_message.from_user.id
     app.unblock_user(user)
-    message.reply_text('**User unblock✅**')
+    message.edit_text('**User unblock✅**')
       
     
 wwbot = [175844556,198626752, 1029642148, 618096097]
@@ -111,9 +111,9 @@ def spd(client, message):
     global speed
     try:
         speed = int(message.command[1])
-        message.edit_text('**Speed Join {} **'.format(speed))
+        message.edit_text('**Speed Join {} set🎮**'.format(speed))
     except Exception:
-        message.edit_text('**برای تنظیم سرعت به این شکل عمل کنید\nspeed NUMBER**')
+        message.edit_text('**Error No Speed NUMBER❗️**')
         
 
 @app.on_message(filters.command('join', '!') & filters.me)
