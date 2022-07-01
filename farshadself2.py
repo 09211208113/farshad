@@ -111,9 +111,9 @@ def spd(client, message):
     global speed
     try:
         speed = int(message.command[1])
-        message.reply_text('**Speed Join {} **'.format(speed))
+        message.edit_text('**Speed Join {} **'.format(speed))
     except Exception:
-        message.reply_text('**برای تنظیم سرعت به این شکل عمل کنید\nspeed NUMBER**')
+        message.edit_text('**برای تنظیم سرعت به این شکل عمل کنید\nspeed NUMBER**')
         
 
 @app.on_message(filters.command('join', '!') & filters.me)
