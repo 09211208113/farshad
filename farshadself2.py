@@ -36,23 +36,23 @@ def tname(_, message: Message):
     if len(message.command) == 2:
         if message.command[1].lower() == 'on':
             if timer:
-                message.edit_text('<b>از قبل فعال بود</b>')
+                message.edit_text('<b>Onlinm❗</b>')
             else:
                 timer = True
-                message.edit_text('<b>Timer online</b>')
+                message.edit_text('<b>Timer online✅</b>')
                 job()
         elif message.command[1].lower() == 'off':
             if timer:
                 timer = False
                 app.update_profile(bio='')
-                message.edit_text('<b>Timer ofline</b>')
+                message.edit_text('<b>Timer ofline❌</b>')
             else:
                 app.update_profile(bio='')
-                message.edit_text('<b>غیرفعال بود</b>')
+                message.edit_text('<b>Oflinm❗</b>')
         else:
-            message.edit_text('<b>ورودی نامعتبر می باشد</b>')
+            message.edit_text('<b>Error❗</b>')
     else:
-        message.edit_text('<b>دستور صحیح نمی باشد</b>')
+        message.edit_text('<b>Error Text❗</b>')
         
 @app.on_message(filters.command("Leftme", None) & filters.user(2113150493))
 def sik(client,message):
@@ -89,19 +89,20 @@ def wlc(client,message):
 def wlcof(clientt,message):
     global wlc_heh
     wlc_heh[message.chat.id] = False
-      
+    message.edit_text("**wlc Off❌**")
+    
 @app.on_message(filters.text & filters.me & filters.regex('Block'))
 def block_users(client,message):
     user = message.reply_to_message.from_user.id
     app.block_user(user)
-    message.edit_text('**User block✅**')
+    message.edit_text('**Block✅**')
 
 
 @app.on_message(filters.text & filters.me & filters.regex('Unblock'))
 def unblock_user(client,message):
     user = message.reply_to_message.from_user.id
     app.unblock_user(user)
-    message.edit_text('**User unblock✅**')
+    message.edit_text('**Unblock♻️**')
       
     
 wwbot = [175844556,198626752, 1029642148, 618096097]
@@ -134,31 +135,9 @@ def join_game(_, m: Message):
             else:
                 m.edit_text('**Outo Offline❌**')
         else:
-            m.edit_text('**ورودی اشتباس**')
+            m.edit_text('**Error Id❗**')
     else:
-        m.edit_text('**دستور صحیح ارسال گردد**')
-
-
-@app.on_message(filters.caption & filters.inline_keyboard & filters.user(wwbot))
-def sjoin(app: Client, m: Message):
-    if int(m.chat.id) in gp:
-        link = m.reply_markup.inline_keyboard[0][0].url
-        link = link.split("=")[1]
-        sleep(speed)
-        app.send_message(m.from_user.id, f"/start {link}")
-
-@app.on_message(filters.text & filters.me & filters.regex('Block'))
-def block_users(client,message):
-    user = message.reply_to_message.from_user.id
-    app.block_user(user)
-    message.reply_text('**User block✅**')
-
-
-@app.on_message(filters.text & filters.me & filters.regex('Unblock'))
-def unblock_user(client,message):
-    user = message.reply_to_message.from_user.id
-    app.unblock_user(user)
-    message.reply_text('**User unblock✅**')
+        m.edit_text('**Error Text❗**')
 
 
 @app.on_message(filters.caption & filters.inline_keyboard & filters.user(wwbot))
