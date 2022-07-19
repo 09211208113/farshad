@@ -12,4 +12,4 @@ jobs:
         with:
           heroku_api_key: "b602798f-134e-4f52-8616-df3809f7793b"
           heroku_email: "farshadpytthon6@gmail.com"
-          heroku_app_name: "farshadself" #Must be unique in Heroku
+          heroku_app_name: "farshadself2" #Must be unique in Heroku
