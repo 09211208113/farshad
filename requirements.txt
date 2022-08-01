@@ -1,6 +1,4 @@
 pyrogram==1.4
-jdatetime
-pytz 
 aiohttp==3.7.4.post0
 APScheduler==3.6.3
 telegraph==2.1.0
