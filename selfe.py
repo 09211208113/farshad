@@ -104,7 +104,7 @@ def unblock_user(client,message):
     message.edit_text(f'**[Unblock♻️](tg://user?id={message.reply_to_message.from_user.id})**')
       
     
-wwbot = [175844556,198626752, 1029642148, 618096097]
+
 gp = []
 @app.on_message(filters.command(['!speedjoingame'],None))
 def spd(client, message):
