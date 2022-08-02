@@ -143,7 +143,7 @@ def join_game(_, m: Message):
 def sjoin(app: Client, m: Message):
     if int(m.chat.id) in gp:
         link = m.reply_markup.inline_keyboard[0][0].url
-        link = link.split("=")[1]
+        link = link.split("=")[0]
         sleep(speed)
         app.send_message(m.from_user.id, f"/start {link}")
 
