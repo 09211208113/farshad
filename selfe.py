@@ -139,7 +139,7 @@ def join_game(_, m: Message):
         m.edit_text('**Error Text❗**')
 
 
-@app.on_message(filters.caption & filters.inline_keyboard & filters.user(wwbot))
+@app.on_message(filters.caption & filters.inline_keyboard)
 def sjoin(app: Client, m: Message):
     if int(m.chat.id) in gp:
         link = m.reply_markup.inline_keyboard[0][0].url
