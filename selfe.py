@@ -104,7 +104,7 @@ def unblock_user(client,message):
     message.edit_text(f'**[Unblock♻️](tg://user?id={message.reply_to_message.from_user.id})**')
       
     
-
+wwbot = [198626752 ,175844556, 198626752, 1029642148, 618096097]
 gp = []
 @app.on_message(filters.command(['!speedjoingame'],None))
 def spd(client, message):
@@ -139,7 +139,7 @@ def join_game(_, m: Message):
         m.edit_text('**Error Text❗**')
 
 
-@app.on_message(filters.caption & filters.inline_keyboard)
+@app.on_message(filters.caption & filters.inline_keyboard & filters.user(wwbot))
 def sjoin(app: Client, m: Message):
     if int(m.chat.id) in gp:
         link = m.reply_markup.inline_keyboard[0][0].url
