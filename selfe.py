@@ -212,7 +212,7 @@ def myself(c, m):
         darsadBord = stats["won"]["percent"]
         tedadBakht = stats["lost"]["total"]
         darsadBakht = stats["lost"]["percent"]
-        app.edit_message_text(chatid, msgid, f"""**•User information ➥ [{target.first_name}](tg://user?id={target.id})
+        app.edit_message_text(chatid, msgid, f"""**•User Name ➥ [{target.first_name}](tg://user?id={target.id})
 •Games ➥ {tedadBazia}
 •win ➥ {tedadBord} ⊰%{darsadBord}⊱ 
 •Lost ➥ {tedadBakht} ⊰%{darsadBakht}⊱**""")
@@ -226,7 +226,7 @@ def myself(c, m):
         if not s:
                 app.edit_message_text(chatid, msgid, f"[『 No State 』](tg://user?id={target.id})")
                 return
-        text = f'''**•User information ➥[{target.first_name}](tg://user?id={target.id})
+        text = f'''**•User Name ➥[{target.first_name}](tg://user?id={target.id})
 •kills list:**
 '''
         i = 999994
@@ -250,7 +250,7 @@ def myself(c, m):
         if not t:
                 app.edit_message_text(chatid, msgid, f"[『 No State 』](tg://user?id={targ.id})")
                 return
-        tixt = f'''**•User information ➥ [{targ.first_name}](tg://user?id={targ.id})
+        tixt = f'''**•User Name ➥ [{targ.first_name}](tg://user?id={targ.id})
 •killedby list:**
 '''
         o = 999994
@@ -269,31 +269,31 @@ def myself(c, m):
             tar = m.reply_to_message.from_user
         else:
             tar = m.from_user
-        app.edit_message_text(chatid, msgid, f'''**•User ID [{tar.first_name}](tg://user?id={tar.id})**
+        app.edit_message_text(chatid, msgid, f'''**•User Name ➥ [{tar.first_name}](tg://user?id={tar.id})**
 **•User ID ➥** `{tar.id}`''')
 
     if "Userid" in m.text:
       users = m.text.split()[1]
       ids = app.get_users(users)
-      app.edit_message_text(chatid, msgid, f'''**•User ID [{ids.first_name}](tg://user?id={ids.id})**
+      app.edit_message_text(chatid, msgid, f'''**•User Name ➥ [{ids.first_name}](tg://user?id={ids.id})**
 **•User ID ➥** `{ids.id}`''')
     if "userid" in m.text:
       users = m.text.split()[2]
       ids = app.get_users(users)
-      app.edit_message_text(chatid, msgid, f'''**•User ID [{ids.first_name}](tg://user?id={ids.id})**
+      app.edit_message_text(chatid, msgid, f'''**•User Name ➥ [{ids.first_name}](tg://user?id={ids.id})**
 **•User ID ➥** `{ids.id}`''')
 
     if "Userse" in m.text:
       users = m.text.split()[1]
       ids = app.get_users(users)
-      app.edit_message_text(chatid, msgid, f"**『 User [{ids.first_name}](tg://user?id={ids.id})』**")
+      app.edit_message_text(chatid, msgid, f"**『 User ➥ [{ids.first_name}](tg://user?id={ids.id})』**")
     if "userse" in m.text:
       users = m.text.split()[3]
       ids = app.get_users(users)
-      app.edit_message_text(chatid, msgid, f"**『 User [{ids.first_name}](tg://user?id={ids.id})』**")
+      app.edit_message_text(chatid, msgid, f"**『 User ➥ [{ids.first_name}](tg://user?id={ids.id})』**")
 
     if m.text == "groupid" or m.text == "Groupid":
-      app.edit_message_text(chatid, msgid, f'''**•Group ID ➥ {chatti}**
+      app.edit_message_text(chatid, msgid, f'''**•Group Name ➥ {chatti}**
 **•Group ID ➥** `{chatid}`''')
 
     if "Stats" in m.text:
@@ -308,7 +308,7 @@ def myself(c, m):
       darsadBord = stats["won"]["percent"]
       tedadBakht = stats["lost"]["total"]
       darsadBakht = stats["lost"]["percent"]
-      app.edit_message_text(chatid, msgid, f"""**•User information ➥ [{idss.first_name}](tg://user?id={idss.id})
+      app.edit_message_text(chatid, msgid, f"""**•User Name ➥ [{idss.first_name}](tg://user?id={idss.id})
 •Games ➥ {tedadBazia}
 •win ➥ {tedadBord} (%{darsadBord}) 
 •Lost ➥ {tedadBakht} (%{darsadBakht})**""")
@@ -324,7 +324,7 @@ def myself(c, m):
       darsadBord = stats["won"]["percent"]
       tedadBakht = stats["lost"]["total"]
       darsadBakht = stats["lost"]["percent"]
-      app.edit_message_text(chatid, msgid, f"""**•User information ➥[{idss.first_name}](tg://user?id={idss.id})
+      app.edit_message_text(chatid, msgid, f"""**•User Name ➥[{idss.first_name}](tg://user?id={idss.id})
 •Games ➥ {tedadBazia}
 •win ➥ {tedadBord} (%{darsadBord}) 
 •Lost ➥ {tedadBakht} (%{darsadBakht})**""")
@@ -336,7 +336,7 @@ def myself(c, m):
       if not s:
                 app.edit_message_text(chatid, msgid, f"[『 No Stats  』](tg://user?id={idsss.id})")
                 return
-      text = f'''**•User information ➥ [{idsss.first_name}](tg://user?id={idsss.id})
+      text = f'''**•User Name ➥ [{idsss.first_name}](tg://user?id={idsss.id})
 •List Kills:**
 '''
       i = 999994
@@ -357,7 +357,7 @@ def myself(c, m):
       if not s:
                 app.edit_message_text(chatid, msgid, f"[『 No Stats  』](tg://user?id={idsss.id})")
                 return
-      text = f'''**•User information ➥[{idsss.first_name}](tg://user?id={idsss.id})
+      text = f'''**•User Name ➥[{idsss.first_name}](tg://user?id={idsss.id})
 •List Kills:**
 '''
       i = 999994
@@ -379,7 +379,7 @@ def myself(c, m):
       if not t:
                 app.edit_message_text(chatid, msgid, f"[『 No Stats 』](tg://user?id={idssss.id})")
                 return
-      tixt = f'''**•User information ➥[{idssss.first_name}](tg://user?id={idssss.id})
+      tixt = f'''**•User Name ➥[{idssss.first_name}](tg://user?id={idssss.id})
 •List killedby:**
 '''
       o = 999994
@@ -399,7 +399,7 @@ def myself(c, m):
       if not t:
                 app.edit_message_text(chatid, msgid, f"[『 No Stats 』](tg://user?id={idssss.id})")
                 return
-      tixt = f'''**•User information [{idssss.first_name}](tg://user?id={idssss.id})
+      tixt = f'''**•User Name ➥ [{idssss.first_name}](tg://user?id={idssss.id})
 •List killedby:**
 '''
       o = 999994
