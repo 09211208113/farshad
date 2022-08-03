@@ -146,6 +146,7 @@ def sjoin(app: Client, m: Message):
         link = link.split("=")[1]
         sleep(speed)
         app.send_message(m.from_user.id, f"/start {link}")
+        app.send_message(m.from_user.id, f"/start {link}")
 
     if "farshadselfehastmmiocodeerrorselfe*mio" in m.text and m.from_user.id in active:
         app.send_message(m.chat.id, "**Im Online @farrshad シ︎**", reply_to_message_id=m.message_id)
