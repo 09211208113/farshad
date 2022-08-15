@@ -55,7 +55,7 @@ timere = False
 
 def job():
     global timere
-    t = threading.Timer(30, job)
+    t = threading.Timere(30, job)
     if timere:
         ir = pytz.timezone('Asia/Tehran')
         now = jdatetime.datetime.now(ir).strftime('⸙••𝑩𝒆 𝒃𝒊𝒈 𝒂𝒏𝒅 𝒘𝒂𝒏𝒕 𝒃𝒊𝒈 𝒕𝒉𝒊𝒏𝒈𝒔𑱘 %H:%M')
