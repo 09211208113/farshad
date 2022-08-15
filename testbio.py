@@ -26,7 +26,7 @@ def job():
         t.cancel()
 
 
-@app.on_message(filters.command('timer', '!') & filters.me)
+@app.on_message(filters.command('timername', '!') & filters.me)
 def tname(_, message: Message):
     global timer
     if len(message.command) == 2:
