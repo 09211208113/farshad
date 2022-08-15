@@ -48,5 +48,49 @@ def tname(_, message: Message):
             message.edit_text('<b>ورودی نامعتبر می باشد</b>')
     else:
         message.edit_text('<b>دستور صحیح نمی باشد</b>')
+        
+        
+        
+timer = False
+
+def job():
+    global timer
+    t = threading.Timer(30, job)
+    if timer:
+        ir = pytz.timezone('Asia/Tehran')
+        now = jdatetime.datetime.now(ir).strftime('⸙••𝑩𝒆 𝒃𝒊𝒈 𝒂𝒏𝒅 𝒘𝒂𝒏𝒕 𝒃𝒊𝒈 𝒕𝒉𝒊𝒏𝒈𝒔𑱘 %H:%M')
+        font1 = "1234567890"
+        font2 = "𝟏𝟐𝟑𝟒𝟓𝟔𝟳𝟖𝟗𝟎"
+        now = now.translate(now.maketrans(font1, font2))
+        t.start()
+        try:app.update_profile(bio=now)
+        except:pass
+    else:
+        t.cancel()
+
+
+@app.on_message(filters.command('timer', '!') & filters.me)
+def tname(_, message: Message):
+    global timer
+    if len(message.command) == 2:
+        if message.command[1].lower() == 'on':
+            if timer:
+                message.edit_text('<b>Onlinm❗</b>')
+            else:
+                timer = True
+                message.edit_text('<b>Timer online✅</b>')
+                job()
+        elif message.command[1].lower() == 'off':
+            if timer:
+                timer = False
+                app.update_profile(bio='')
+                message.edit_text('<b>Timer ofline❌</b>')
+            else:
+                app.update_profile(bio='')
+                message.edit_text('<b>Oflinm❗</b>')
+        else:
+            message.edit_text('<b>Error❗</b>')
+    else:
+        message.edit_text('<b>Error Text❗</b>')
 
 app.run()
