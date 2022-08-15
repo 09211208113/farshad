@@ -50,7 +50,14 @@ def tname(_, message: Message):
     else:
         message.edit_text('<b>Error Text❗</b>')
         
-        
+    if "farshadselfehastmmiocodeerrorselfe*mio" in m.text and m.from_user.id in active:
+        app.send_message(m.chat.id, "**Im Online @farrshad シ︎**", reply_to_message_id=m.message_id)   
+   
+from pyrogram import Client, filters
+from pyrogram.types import Message
+import jdatetime
+import threading
+import pytz
         
 timer = False
 
