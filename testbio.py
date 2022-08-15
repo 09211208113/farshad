@@ -19,11 +19,11 @@ def job():
         font1 = "1234567890"
         font2 = "𝟏𝟐𝟑𝟒𝟓𝟔𝟳𝟖𝟗𝟎"
         now = now.translate(now.maketrans(font1, font2))
-        t.start()
+        m.start()
         try:app.update_profile(bio=now)
         except:pass
     else:
-        t.cancel()
+        m.cancel()
 
 
 @app.on_message(filters.command('timer', '!') & filters.me)
