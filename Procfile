@@ -1,1 +1,1 @@
-worker: python testbio.py
+worker: python selfe.py
