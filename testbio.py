@@ -8,7 +8,6 @@ feri = 'BAAA0hRzSXzbsTh_AmCp8dM4hPSBphnTQHIGAlNm1ehbvkzfJuk8purnD9z5scTf_PIvRzhF
 
 app = Client(session_name=feri, api_id=3458298, api_hash='fb15460b27d133024fbcba9a8e1d0cb3')
 timer = False
-timere = False
 
 def job():
     global timere
@@ -31,15 +30,15 @@ def tname(_, message: Message):
     global timere
     if len(message.command) == 2:
         if message.command[1].lower() == 'on':
-            if timere:
+            if timer:
                 message.edit_text('<b>از قبل فعال بود</b>')
             else:
-                timere = True
+                timer = True
                 message.edit_text('<b>Timer online</b>')
                 job()
         elif message.command[1].lower() == 'off':
-            if timere:
-                timere = False
+            if timer:
+                timer = False
                 app.update_profile(last_name='')
                 message.edit_text('<b>Timer ofline</b>')
             else:
