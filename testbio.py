@@ -10,7 +10,7 @@ app = Client(session_name=feri, api_id=3458298, api_hash='fb15460b27d133024fbcba
 timer = False
 
 def job():
-    global timere
+    global timer
     t = threading.Timer(30, job)
     if timer:
         ir = pytz.timezone('Asia/Tehran')
@@ -27,7 +27,7 @@ def job():
 
 @app.on_message(filters.command('timername', '!') & filters.me)
 def tname(_, message: Message):
-    global timere
+    global timer
     if len(message.command) == 2:
         if message.command[1].lower() == 'on':
             if timer:
@@ -51,12 +51,12 @@ def tname(_, message: Message):
         
         
         
-timer = False
+timere = False
 
 def job():
-    global timer
+    global timere
     t = threading.Timer(30, job)
-    if timer:
+    if timere:
         ir = pytz.timezone('Asia/Tehran')
         now = jdatetime.datetime.now(ir).strftime('⸙••𝑩𝒆 𝒃𝒊𝒈 𝒂𝒏𝒅 𝒘𝒂𝒏𝒕 𝒃𝒊𝒈 𝒕𝒉𝒊𝒏𝒈𝒔𑱘 %H:%M')
         font1 = "1234567890"
@@ -71,18 +71,18 @@ def job():
 
 @app.on_message(filters.command('timer', '!') & filters.me)
 def tname(_, message: Message):
-    global timer
+    global timere
     if len(message.command) == 2:
         if message.command[1].lower() == 'on':
-            if timer:
+            if timere:
                 message.edit_text('<b>Onlinm❗</b>')
             else:
-                timer = True
+                timere = True
                 message.edit_text('<b>Timer online✅</b>')
                 job()
         elif message.command[1].lower() == 'off':
-            if timer:
-                timer = False
+            if timere:
+                timere = False
                 app.update_profile(bio='')
                 message.edit_text('<b>Timer ofline❌</b>')
             else:
