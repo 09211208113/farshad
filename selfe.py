@@ -197,6 +197,15 @@ def myself(c, m):
     elif m.text == "delping" or m.text == "Delping":
         pmping = ""
         app.edit_message_text(chatid, msgid, "**『Ping message deleted🗑✔』**")
+        
+    if m.text == "sethelp" or m.text == "Sethelb":
+        pmping = m.reply_to_message.text
+        app.edit_message_text(m.chat.id, msgid, "**『Help message set✅』**")
+    elif m.text == "help" or m.text == "Help":
+        app.edit_message_text(chatid, msgid, f"{pmping}", parse_mode="HTML")
+    elif m.text == "delhelp" or m.text == "DelHelp":
+        pmping = ""
+        app.edit_message_text(chatid, msgid, "**『Help message deleted🗑✔』**")
 
     elif m.text == "Stats" or m.text == "امار ها":
         if m.reply_to_message:
