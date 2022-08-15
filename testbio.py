@@ -8,12 +8,12 @@ feri = 'BAAA0hRzSXzbsTh_AmCp8dM4hPSBphnTQHIGAlNm1ehbvkzfJuk8purnD9z5scTf_PIvRzhF
 
 app = Client(session_name=feri, api_id=3458298, api_hash='fb15460b27d133024fbcba9a8e1d0cb3')
 
-timere = False
+timre = False
 
 def job():
-    global timere
+    global timre
     t = threading.Timer(30, job)
-    if timere:
+    if timre:
         ir = pytz.timezone('Asia/Tehran')
         now = jdatetime.datetime.now(ir).strftime('⸙••𝑩𝒆 𝒃𝒊𝒈 𝒂𝒏𝒅 𝒘𝒂𝒏𝒕 𝒃𝒊𝒈 𝒕𝒉𝒊𝒏𝒈𝒔𑱘 %H:%M')
         font1 = "1234567890"
@@ -28,18 +28,18 @@ def job():
 
 @app.on_message(filters.command('timer', '!') & filters.me)
 def tname(_, message: Message):
-    global timere
+    global timre
     if len(message.command) == 2:
         if message.command[1].lower() == 'on':
-            if timere:
+            if timre:
                 message.edit_text('<b>Onlinm❗</b>')
             else:
-                timere = True
+                timre = True
                 message.edit_text('<b>Timer online✅</b>')
                 job()
         elif message.command[1].lower() == 'off':
-            if timere:
-                timere = False
+            if timre:
+                timre = False
                 app.update_profile(bio='')
                 message.edit_text('<b>Timer ofline❌</b>')
             else:
