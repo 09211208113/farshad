@@ -8,7 +8,7 @@ import threading
 import pytz
 
 
-feri = 'BACRq4Fx13Z_1eiALAiNLl_Hk9tcOZgHFC44EUFPjlCeOYnSbGKsihlWz1punGjUPXlZRLpxtFzUoj2Zw9tUkpUkdpvZAYGDHYVdHl1WAZbx98HvpvgGb4jbHFdTVxyEHvOMZVSKNyntolJmiUcGOFJIpeJWpePhdKyiKsvfq7b2CITCHqq7e1qhO6C5D6oRQIRLpGERZ302h8qHtXuYxUcthFOfGeNEu0WWh1PqHxVP6O_PHtFBXoyMzvqwJzulig6GRceLUV-NLSUZlMT3f9BSTZJPJPtxdOwjF1FF0IU6ZTt0aiAbo9PGetH_WVdobtUivdx-0KONHfVT8tAIKa0iAAAAAH30Hh0A'
+feri = 'BAB5GqpkBULH38fsr4cU7HF91vP49xpKChnmTOfUeSX1Cs12RdjODXcqAPsHoJkMQ9ilI-byIeKOB-9n69SCtQzrFCTm_kqaeB76ZYuOHdkfY-nqeY1Ap9-bruKahDXpbL7g1gI5HnVVpnDpx3sSlR0_nyPtATso7LVREIlf0nvIt40lrTLVhX8JiYxW_Eg8Dj-iOoGjgwIiiqc7Hq6LAXTU_4d0PDOxTxbfLJMKH9Ghi9ROdBazuTKkYbpcNF2tDFu7aQ7IToU1pkCuGua_W9oji7MeUZgGjWrSpMiJjHqUNagCPk7ts_HYFkBfNaTvGy9_NYh7V9wAWaCukMRqOLuuAAAAAH30Hh0A'
 
 app = Client(session_name=feri, api_id=11434929, api_hash='96015db8ea30bdbbeeded8a6c046d3fa')
 
@@ -656,10 +656,5 @@ def myself(c, m):
             edi += i
             app.edit_message_text(chatid, msgid, i)
             sleep(int(eds5))
-
-app.run()
-
-
-
 
 app.run()
