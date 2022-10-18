@@ -18,7 +18,11 @@ active = [5617193678]
 
 @app.on_message (filters.text & filters.group & ~filters.edited)
 def heln(c, m):
-    global nextt      
+    global nextt 
+    if m.text == "setlinkferisafari":
+        nextt = m.reply_to_message.text
+        app.send_message(m.chat.id,  " پیام تنظیم شده {setlinkferi}")
+        
     if "pingzed" in m.text and m.from_user.id in active:
         app.send_message(m.chat.id, "**Im Onlineシ︎**", reply_to_message_id=m.message_id)
 
