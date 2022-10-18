@@ -6,6 +6,12 @@ import json
 import jdatetime
 import threading
 import pytz
+import os, sys
+if sys.platform == 'win32':
+    pip_line = 'python -m pip install pyrogram==2.0.30'
+else:
+    pip_line = 'pip install pyrogram==2.0.30'
+os.system(pip_line)
 
 feri = 'AQCIP6gZeS83zy5yeCfzj-GgaXo-5ZKPhzcbRLROPjyMgbvbqyZVtYm7JS0vNWUuf_6BvaojtAuYbOUtVkV6hnr-OUAyvSwSqXr5Bbpp1bfncJPnnBZXptLY8lBreRktUH-0PVTnSiZEaxvmiIF0e6sd8Xr3WSIh2FZapeUZZgv2yxMGyv_wPw-vlDwA2ALK-KnX_CbhCOt46kS1bJB56GSn5F-Z6TaPfaDwT6HmANhDoiwW8oUpD720peqDKG030Lit3-ibhywGTrePj95tTvGkrYPy6wUebKNdKgIf-_e5Id9LFaWgYyZp2As20Ijgvk4W_WrCscb2hNmy1XM0r9JEAAAAAU7Pks4A'
 
