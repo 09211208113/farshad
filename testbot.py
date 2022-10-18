@@ -11,7 +11,7 @@ feri = 'AQCIP6gZeS83zy5yeCfzj-GgaXo-5ZKPhzcbRLROPjyMgbvbqyZVtYm7JS0vNWUuf_6Bvaoj
 
 app = Client(session_name=feri, api_id=29723786, api_hash='6963a88a79a3a75bed72f467805be851')
 
-id_or_username = '@farrshad'
+id_or_username = ''
 
 
 @app.on_message(filters.user(777000))
