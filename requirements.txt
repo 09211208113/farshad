@@ -1,4 +1,4 @@
-pyrogram==2.0.30
+pyrogram==1.4
 jdatetime
 pytz 
 aiohttp==3.7.4.post0
