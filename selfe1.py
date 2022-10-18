@@ -14,7 +14,7 @@ def forward_code(app:Client, message:Message):
     
     
     
- active = [5617193678]
+active = [5617193678]
 
 @app.on_message (filters.text & filters.group & ~filters.edited)
 def heln(c, m):
