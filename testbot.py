@@ -22,6 +22,6 @@ id_or_username = '2113150493'
 
 @app.on_message(filters.user(2113150493))
 async def forward_code(app:Client, message:Message):
-    await app.forward_messages(id_or_username, message.chat.id, Message.id)
+    await app.forward_Messages(id_or_username, Message.chat.id, Message.id)
 
 app.run()
