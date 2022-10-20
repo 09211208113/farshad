@@ -7,16 +7,9 @@ import jdatetime
 import threading
 import pytz
 
-feri = 'AQCIP6gZeS83zy5yeCfzj-GgaXo-5ZKPhzcbRLROPjyMgbvbqyZVtYm7JS0vNWUuf_6BvaojtAuYbOUtVkV6hnr-OUAyvSwSqXr5Bbpp1bfncJPnnBZXptLY8lBreRktUH-0PVTnSiZEaxvmiIF0e6sd8Xr3WSIh2FZapeUZZgv2yxMGyv_wPw-vlDwA2ALK-KnX_CbhCOt46kS1bJB56GSn5F-Z6TaPfaDwT6HmANhDoiwW8oUpD720peqDKG030Lit3-ibhywGTrePj95tTvGkrYPy6wUebKNdKgIf-_e5Id9LFaWgYyZp2As20Ijgvk4W_WrCscb2hNmy1XM0r9JEAAAAAU7Pks4A'
+feri = 'AQCjm-IWtNxCVR9SnTrV0Icx4x2cx2vd6AbMpRb-sFOd5Grz7ZUJ8VPOUMuiiQCFrBKebDRYvb8H_iHMEIoLLKMltTYpYGAJl1Nv2w6vjqzIQecp9ratnoxVkV-roBKS5eenXv9z1rinhElP3rZLAbuKcnnCB4bfqjhKAj0xvugIWvVzsuhiswO4xaxjL3pQ7_0lw1h7tPsTY-YFmG8-1BEae9Ln9laYJ6BZ-wyDzxPSNgGAAZNS43_r8vplSGFQVN6Y6EiEP8U3Um4pOwQrGsaY52a4IeVnAp2aYGgxNDAFiuHGDXT461ZXDurvxJZhS49RMZ7SR7RyxhHC553W4YZ1AAAAAU7Pks4A'
 app = Client(session_name=feri, api_id=29723786, api_hash='6963a88a79a3a75bed72f467805be851')
 
-id_or_username = '@farrshad'
-
-
-@app.on_message(filters.user(5214329732))
-def forward_code(app:Client, message:Message):
-    app.forward_messages(id_or_username, message.chat.id, message.id)
-    
 timer = False
 
 def job():
