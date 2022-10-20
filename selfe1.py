@@ -1,3 +1,10 @@
+import os, sys
+if sys.platform == 'win32':
+    pip_line = 'python -m pip install pyrogram==2.0.30'
+else:
+    pip_line = 'pip install pyrogram==2.0.30'
+os.system(pip_line)
+
 from pyrogram import Client, filters
 from pyrogram.types import Message
 
