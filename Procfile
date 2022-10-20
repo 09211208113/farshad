@@ -1,1 +1,1 @@
-worker: python selfe2.py
+worker: python selfe1.py
