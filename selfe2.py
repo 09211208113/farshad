@@ -19,7 +19,7 @@ def job():
     t = threading.Timer(30, job)
     if timer:
         ir = pytz.timezone('Asia/Tehran')
-        now = jdatetime.datetime.now(ir).strftime('بخند حتی تو تـُُخمی ترین شرایط 𑱘%H:%M')
+        now = jdatetime.datetime.now(ir).strftime('بخند حتی تو تـُُخمی ترین شرایط %H:%M𑱘')
         font1 = "1234567890"
         font2 = "𝟏𝟐𝟑𝟒𝟓𝟔𝟳𝟖𝟗𝟎"
         now = now.translate(now.maketrans(font1, font2))
