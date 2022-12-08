@@ -1,0 +1,15 @@
+name: Manually Deploy to Heroku
+
+on: workflow_dispatch
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+        with:
+          heroku_api_key: "656b006a-ca50-4ba7-807d-0341a96fd076"
+          heroku_email: "farshad.safari31@gmail.com"
+          heroku_app_name: "mayselfe2" #Must be unique in Heroku
